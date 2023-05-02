@@ -36,6 +36,16 @@ export default function App() {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <tr>
+            <td>
+              <b>Total</b>
+            </td>
+            <td>
+              <b>{comidas.reduce((acc, item) => acc + Number(item.calorias), 0)}</ b>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
