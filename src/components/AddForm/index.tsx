@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 import AddButton from "../AddButton";
 import InputCalorias from "../InputCalorias";
 import InputComida from "../InputComida";
+import { ComidaComCalorias } from "../../App";
 
-export default function AddForm() {
+type Props = {
+  onSubmit: (item: ComidaComCalorias) => void;
+};
+
+export default function AddForm(props: Props) {
   const [comida, setComida] = useState("");
   const [calorias, setCalorias] = useState("");
 
@@ -12,11 +17,18 @@ export default function AddForm() {
     setComida("");
     setCalorias("");
   }
-  // função de submit
+  // criar função de submit
+  function submit(e: FormEvent) {
+    e.preventDefault();
+    // // chamar a funcao adiciona item na list props.onSubmit
+    props.onSubmit({ comida, calorias });
+    // // resetar os campos
+    reset();
+  }
 
   return (
-    // repassar a função de submit
-    <form>
+    // repassar a função de submit no onsubmit
+    <form onSubmit={submit}>
       <InputComida value={comida} onChange={setComida} />
       <InputCalorias value={calorias} onChange={setCalorias} />
       <div className="row">
