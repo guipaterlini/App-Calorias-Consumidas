@@ -4,5 +4,13 @@ type Props = {
 };
 
 export default function InputComida(props: Props) {
-  return <input type="text" name="comida" placeholder="Comida" />;
+  return (
+    <input
+      value={props.value}
+      onChange={(e) => props.onChange(e.target.value)}
+      type="text"
+      name="comida"
+      placeholder="Comida"
+    />
+  );
 }
