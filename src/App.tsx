@@ -1,7 +1,9 @@
+import AddForm from "./components/AddForm";
+
 export default function App() {
   return (
-    <div>
-      <h1>Hello Students</h1>
+    <div style={{ padding: "15px" }}>
+      <AddForm />
     </div>
   );
 }
