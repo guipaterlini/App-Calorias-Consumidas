@@ -29,10 +29,12 @@ export default function App() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Stephen Curry</td>
-            <td>27</td>
-          </tr>
+          {comidas.map((item) => (
+            <tr>
+              <td>{item.comida}</td>
+              <td>{item.calorias}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

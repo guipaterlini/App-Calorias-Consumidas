@@ -35,17 +35,7 @@ export default function AddForm(props: Props) {
         <div className="column">
           <AddButton title="adicionar" icon="+ " />
         </div>
-        <div className="column">
-          <button type="button" onClick={reset}>
-            Resetar
-          </button>
-        </div>
       </div>
-      <p>
-        Calorias: {calorias}
-        <br />
-        Comida: {comida}
-      </p>
     </form>
   );
 }
