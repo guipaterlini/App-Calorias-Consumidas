@@ -19,7 +19,7 @@ export default function InputComida(props: Props) {
   const { data, isLoading } = useQuery(
     ["pesquisaDeComida", props.value],
     () => pesquisarComida(props.value),
-    { enabled: Boolean(props.value) }
+    { enabled: props.value.length > 4 }
   );
 
   return (
@@ -42,7 +42,7 @@ export default function InputComida(props: Props) {
           <div className="column">
             <button
               type="button"
-              className="buton-outline"
+              className="button-outline"
               onClick={() => props.adicionarComida(comida)}
             >
               adicionar
