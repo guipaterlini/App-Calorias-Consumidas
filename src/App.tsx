@@ -1,18 +1,14 @@
 import { useState } from "react";
 
 import AddForm from "./components/AddForm";
-
-export type ComidaComCalorias = {
-  comida: string;
-  calorias: string;
-};
+import { Comida } from "./types";
 
 export default function App() {
   // hook de estado para salvar a lista de comidas
-  const [comidas, setComidas] = useState<ComidaComCalorias[]>([]);
+  const [comidas, setComidas] = useState<Comida[]>([]);
 
   // função para adicionar uma comida a lista
-  function adicionarComida(item: ComidaComCalorias) {
+  function adicionarComida(item: Comida) {
     setComidas([...comidas, item]);
   }
 
@@ -31,8 +27,8 @@ export default function App() {
         <tbody>
           {comidas.map((item) => (
             <tr>
-              <td>{item.comida}</td>
-              <td>{item.calorias}</td>
+              <td>{item.food}</td>
+              <td>{item.kcal}</td>
             </tr>
           ))}
         </tbody>
@@ -42,7 +38,9 @@ export default function App() {
               <b>Total</b>
             </td>
             <td>
-              <b>{comidas.reduce((acc, item) => acc + Number(item.calorias), 0)}</ b>
+              <b>
+                {comidas.reduce((acc, item) => acc + Number(item.kcal), 0)}
+              </b>
             </td>
           </tr>
         </tfoot>
